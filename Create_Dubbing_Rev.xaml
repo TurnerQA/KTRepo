@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Perform_Dubbigrev" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1334,3937" sap2010:WorkflowViewState.IdRef="Perform_BS_Task_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Perform_Dubbigrev" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1334,4458" sap2010:WorkflowViewState.IdRef="Perform_BS_Task_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -57,10 +57,11 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Perform_Dubbing" sap:VirtualizedContainerService.HintSize="1344,3872" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Perform_Dubbing" sap:VirtualizedContainerService.HintSize="1344,4393" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Player_Popup_Exists" />
       <Variable x:TypeArguments="x:Boolean" Name="Segmentation_form_Exists" />
@@ -70,6 +71,53 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="1302,481" sap2010:WorkflowViewState.IdRef="Sequence_9">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on version" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click.CursorPosition>
+          <ui:CursorPosition Position="Center">
+            <ui:CursorPosition.OffsetX>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetX>
+            <ui:CursorPosition.OffsetY>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:CursorPosition.OffsetY>
+          </ui:CursorPosition>
+        </ui:Click.CursorPosition>
+        <ui:Click.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9a5fd7f4-67b4-41fa-b208-7afad8f91134" InformativeScreenshot="769f50a5e35010a916f3192701a19f86" Selector="&lt;html app='chrome.exe' title='CLEAR' /&gt;&lt;webctrl innertext='AUD REV - V*' idx='1' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:Click.Target>
+      </ui:Click>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;clicked on version&quot;]" />
+      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Report.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="addStatus">
+            <Literal x:TypeArguments="x:String">Pass</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="addModules">
+            <Literal x:TypeArguments="x:String">Click on version</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="addExptedResults">
+            <Literal x:TypeArguments="x:String">Sucessfully clicked on version</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="Final_ReportPath" />
+          <InArgument x:TypeArguments="x:String" x:Key="SheetName">
+            <Literal x:TypeArguments="x:String">Results</Literal>
+          </InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
     <Sequence sap:VirtualizedContainerService.HintSize="1302,3780" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -106,10 +154,8 @@
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1260,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Player exists&quot;]" />
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Mark-In" sap:VirtualizedContainerService.HintSize="1260,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="selector">
-            <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl id='CMP_AssetViewerPlayerInstance_btnCMPMarkIn' tag='DIV' /&gt;</Literal>
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl id='CMP_AssetViewerPlayerInstance_btnCMPMarkIn' tag='DIV' /&gt;</InArgument>
           <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
@@ -117,10 +163,8 @@
       <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="1260,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
       <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Mark-Out" sap:VirtualizedContainerService.HintSize="1260,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="WaitForElement.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="selector">
-            <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl id='CMP_AssetViewerPlayerInstance_btnCMPMarkOut' tag='DIV' /&gt;</Literal>
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl id='CMP_AssetViewerPlayerInstance_btnCMPMarkOut' tag='DIV' /&gt;</InArgument>
           <OutArgument x:TypeArguments="x:Boolean" x:Key="ELement_Result" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
@@ -158,24 +202,16 @@
               </sap:WorkflowViewStateService.ViewState>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Segment Title" sap:VirtualizedContainerService.HintSize="755,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="WaitingForElementAndSendText.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">
-                    <Literal x:TypeArguments="x:String">Title S&amp;P 1</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="selector">
-                    <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl aaname='Title' type='textbox' /&gt;</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">Title S&amp;P 1</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl aaname='Title' type='textbox' /&gt;</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="COmplence select" sap:VirtualizedContainerService.HintSize="755,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="WaitingForElementAndSendText.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">
-                    <Literal x:TypeArguments="x:String">Comment: Others</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="selector">
-                    <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl parentid='formAttributesOuterDiv' class='CaptionCont SelectBox mssearch' /&gt;</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">Comment: Others</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl parentid='formAttributesOuterDiv' class='CaptionCont SelectBox mssearch' /&gt;</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="755,282" sap2010:WorkflowViewState.IdRef="CommentOut_1">
@@ -188,13 +224,9 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Edit actions" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="WaitingForElementAndSendText.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="TypeInto">
-                          <Literal x:TypeArguments="x:String">Comment: Others</Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="selector">
-                          <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl parentid='formAttributesOuterDiv' tag='SPAN' idx='31' /&gt;</Literal>
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="TypeInto">Comment: Others</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl parentid='formAttributesOuterDiv' tag='SPAN' idx='31' /&gt;</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Sequence>
@@ -202,24 +234,16 @@
               </ui:CommentOut>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Enter Keywords" sap:VirtualizedContainerService.HintSize="755,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="WaitingForElementAndSendText.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">
-                    <Literal x:TypeArguments="x:String">Keyword</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="selector">
-                    <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl aaname='Keywords' type='textbox' /&gt;</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">Keyword</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl aaname='Keywords' type='textbox' /&gt;</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Enter Description" sap:VirtualizedContainerService.HintSize="755,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="WaitingForElementAndSendText.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">
-                    <Literal x:TypeArguments="x:String">Description added</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="selector">
-                    <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
-&lt;webctrl aaname='Description' idx='2' /&gt;</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="TypeInto">Description added</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+&lt;webctrl aaname='Description' idx='2' /&gt;</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
@@ -232,14 +256,10 @@
               </ui:InvokeWorkflowFile>
               <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Segment Save Alert" sap:VirtualizedContainerService.HintSize="755,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="WaitForElementAndGetText.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="selector">
-                    <Literal x:TypeArguments="x:String" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
+                  <InArgument x:TypeArguments="x:String" x:Key="selector" xml:space="preserve">&lt;html app='chrome.exe' title='CLEAR' /&gt;
 &lt;webctrl idx='2' isleaf='1' parentid='alertWrapper' tag='DIV' /&gt;
-</Literal>
-                  </InArgument>
-                  <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">
-                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="Segment_Save_Alert" />
-                  </OutArgument>
+</InArgument>
+                  <OutArgument x:TypeArguments="x:String" x:Key="getTextValue">[Segment_Save_Alert]</OutArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
               <If Condition="[Segment_Save_Alert.Contains(&quot;successfully&quot;)]" sap:VirtualizedContainerService.HintSize="755,487" sap2010:WorkflowViewState.IdRef="If_2">
